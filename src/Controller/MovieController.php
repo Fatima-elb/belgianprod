@@ -20,4 +20,12 @@ class MovieController extends AbstractController
             'movies' => $movies,
         ]);
     }
+
+    #[Route('/movie/{id}', name: 'app_movie_show')]
+    public function show(Movie $movie) {
+        return $this->render('movie/show.html.twig',[
+            'movie' => $movie,
+        ]);
+        
+    }
 }

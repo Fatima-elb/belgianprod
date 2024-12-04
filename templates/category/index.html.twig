@@ -17,14 +17,14 @@ h1 {
 <div class="example-wrapper">
     <h1>Liste des catégories</h1>
 
-{% if categories|length > 0 %}
+{% if movies|length > 0 %}
     <ul>
-    {% for category in categories %}    
-        <li>{{ category.name }}</li>
+    {% for movie in movies %}    
+        <li><a href="{{ path('app_movie_show', {'id' : movie.id}) }}"> {{ movie.title }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
-    <p>Aucune catégorie.</p>
+    <p>Aucun film.</p>
 {% endif %}
 </div>
 {% endblock %}

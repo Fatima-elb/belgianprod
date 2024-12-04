@@ -26,10 +26,23 @@ class ActorFixtures extends Fixture
             ],
             [
                 'firstname' => 'Julia',
-                'lastname' => 'roberts',
+                'lastname' => 'Roberts',
                 'birthday' => '1967-10-28',
                 'gender' => 'f',
             ],
+            [
+                'firstname' => 'Russell',
+                'lastname' => 'Crowe',
+                'birthday' => '1974-11-11',
+                'gender' => 'h',
+            ],
+            [
+                'firstname' => 'Connie',
+                'lastname' => 'Nielsen',
+                'birthday' => '1964-07-03',
+                'gender' => 'f',
+            ],
+            
         ];
 
         foreach($dataset as $data) {
@@ -40,6 +53,8 @@ class ActorFixtures extends Fixture
             $actor->setGender($data['gender']);
 
             $manager->persist($actor);
+
+            $this->addReference($data['firstname'].'-'.$data['lastname'],$actor);
         }
 
         $manager->flush();
